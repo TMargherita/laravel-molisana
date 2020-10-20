@@ -1,0 +1,29 @@
+header {
+    .logo {
+        text-align: center;
+        padding: 30px 0;
+
+        img {
+            height: 100px;
+        }
+    }
+
+    .main-nav {
+        &list{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            a {
+                padding:10px  15px;
+                text-decoration: none;
+                color: $menucolor;
+
+                &.active {
+                    background-color: $activeColor;
+                }
+            }
+        }
+    }
+
+}
