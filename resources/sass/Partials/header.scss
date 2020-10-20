@@ -12,18 +12,21 @@ header {
     }
 
     .main-nav {
-        display: flex;
-
-        &.list ul{
-            
+        
+        list-style:none;
+        
+        &-list {
+            display: flex;
             align-items: center;
             justify-content: center;
-            list-style:none;
+            
 
             a {
                 padding:10px  15px;
                 text-decoration: none;
                 color: $menuColor;
+                font-size: 24px;
+                font-weight: 400;
 
                 &.active {
                     background-color: $activeColor;

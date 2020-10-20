@@ -1,14 +1,15 @@
-@import url(https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Teko:wght@300;
 
-* {
+400;500&display=swap);* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 950px;
   max-width: 100%;
+  margin: auto;
 }
 
 ul {
@@ -31,22 +32,24 @@ header .logo img {
 }
 
 header .main-nav {
-  display: flex;
-}
-
-header .main-nav.list ul {
-  align-items: center;
-  justify-content: center;
   list-style: none;
 }
 
-header .main-nav.list ul a {
+header .main-nav-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header .main-nav-list a {
   padding: 10px 15px;
   text-decoration: none;
   color: #001942;
+  font-size: 24px;
+  font-weight: 400;
 }
 
-header .main-nav.list ul a.active {
+header .main-nav-list a.active {
   background-color: #B3E5FC;
 }
 
