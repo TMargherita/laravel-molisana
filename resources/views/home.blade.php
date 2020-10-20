@@ -154,7 +154,7 @@
     <!-- logo header-->
     <header class="container">
         <div class="logo">
-            <img  src="{{asset('img\marchio-sito.png')}}" alt="Logo">
+            <img  src="{{asset('/img/marchio-sito.png')}}" alt="Logo">
         </div>
         <nav class="main-nav">
            <ul class="main-nav-list">
