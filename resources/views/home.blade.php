@@ -122,18 +122,18 @@
   }
   ]';
 
-    $data = jsone_encode($data, true);
+    $data = json_decode($data, true);
 
     $lunga = [];
     $corta = [];
     $cortissima = [];
 
     foreach ($data as $prodotto) {
-        if ($prodotto['tipo'] == "lunga") {
+        if ($prodotto["tipo"] == "lunga") {
             $lunga[] = $prodotto;
-        }elseif ($prodotto['tipo'] == "corta") {
+        }elseif ($prodotto["tipo"] == "corta") {
             $corta[] = $prodotto;
-        }elseif ($prodotto['tipo'] == "cortissima") {
+        }elseif ($prodotto["tipo"] == "cortissima") {
             $cortissima[] = $prodotto;
         }
     }
@@ -154,20 +154,30 @@
     <!-- logo header-->
     <header class="container">
         <div class="logo">
-            <img  src="{{asset('img/marchio-sito.png')}}" alt="Logo">
+            <img  src="{{asset('img\marchio-sito.png')}}" alt="Logo">
         </div>
         <nav class="main-nav">
-           <ul calss="main-nav-list">
-              <li><a href="#">Home</a></li>
-              <li><a class="active" href="prodotti">Prodotti</a></li>
-              <li><a href="news">News</a></li>
+           <ul class="main-nav-list">
+              <li><a href={{route('home')}}>Home</a></li>
+              <li><a class="active" href={{route('prodotti')}}>Prodotti</a></li>
+              <li><a href={{route('news')}}>News</a></li>
             </ul> 
         </nav>
     </header>
     <!--/logo-->
+    <!--corpo immagini-->
     <main>
-
-
+        @if(!empty($lunga))
+            <h2>Lunga</h2>
+            <ul>
+                @foreach ($lunga as $prodotto)
+                    <li>
+                        <img src="{{$prodotto["src"]}}" alt="">
+                        <h3>{{$prodotto["titolo"]}}</h3> 
+                    </li>
+                @endforeach
+            </ul>
+        @endif
     </main>
 
     <script src="{{asset('js/app.js')}}"></script>
