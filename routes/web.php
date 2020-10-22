@@ -18,8 +18,31 @@ Route::get('/', function () {
 })->name("home");
 
 Route::get('/prodotti', function () {
-    return view('prodotti');
+
+    $data = config('pasta');
+    
+    $paste = [];
+
+    foreach($data as $key => $prodotto) {
+        $prodotto['id'] = $key;
+        $paste[$prodotto["tipo"]][] = $prodotto;
+    }
+    
+    return view('prodotti', ["paste" => $paste]);
+
 })->name("prodotti");
+
+Route::get('/prodotti/show/{id}', function ($id) {
+
+    if(config("pasta.$id") == null) {
+        abort(404);
+    }
+    
+    $prodotto = config("pasta.$id");
+
+    return view('prodotto-singolo', ["data" => $prodotto]);
+
+})->where('id', '[0-9]+')->name("dettaglio-prodotto");
 
 Route::get('/news', function () {
     return view('news');
